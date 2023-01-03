@@ -41,7 +41,8 @@ int main()
 
   // Allow 60 passes over the training data, unless we are stopped early by
   // EarlyStopAtMinLoss.
-  const int EPOCHS = 60;
+  // const int EPOCHS = 60;
+  const int EPOCHS = 2;
 
   // Number of data points in each iteration of SGD.
   const int BATCH_SIZE = 50;

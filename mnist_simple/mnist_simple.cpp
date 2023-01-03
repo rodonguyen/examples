@@ -48,7 +48,8 @@ int main()
   // Number of data points in each iteration of SGD
   const size_t BATCH_SIZE = 64;
   // Allow up to 50 epochs, unless we are stopped early by EarlyStopAtMinLoss.
-  const int EPOCHS = 50;
+  // const int EPOCHS = 60;
+  const int EPOCHS = 2;
 
   // Labeled dataset that contains data for training is loaded from CSV file,
   // rows represent features, columns represent data points.
