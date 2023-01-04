@@ -1,8 +1,31 @@
 
 
+Objectives:
+  - The matrixes used in mlpack program:
+    - (Why matrixes?)
+    - Pick 5-10 most popular layers and research them (Because instead of spending time analysing at each case, each model, each layer, we should generalise the problem)
+      - But from initial digging, the code is very complicated for justs Convolution function already.
+    - Record the formular f(x) with variables and stuff 
+  - Derive formulas/algorithms from theory
+    - We have literatures discussing how it works, will it work to just derive formulas/algorithms from there?
+  - Record peak memory, storage consumed
+    - Is it our priority?
+    - What part are we measuring? For a model or for a layer? Should the analysis include loaded data storage as well?
+
+The matrixes:
+- convolution: Backward, Forward, Gradient
+
+Discovering mlpack code:
 - Double colons: https://www.geeksforgeeks.org/scope-resolution-operator-in-c/
 - constexpr: https://learn.microsoft.com/en-us/cpp/cpp/constexpr-cpp?view=msvc-170
 - Debugging: configure Task.json for VSCode
 
+Profiling tools:
 - Valgrind: https://valgrind.org/downloads/
   - Installation guide is in README
+  - Quick usage guide: https://valgrind.org/docs/manual/quick-start.html
+- Gprof: 
+  - Add `-pg` flag: `g++ ${file}.cpp -o ${file} -larmadillo -pg`
+  - Run the compiled file: `./${file}`
+  - Get profiling analysis: `gprof test_gprof gmon.out > analysis.txt`
+
