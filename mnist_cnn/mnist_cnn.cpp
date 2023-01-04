@@ -246,14 +246,15 @@ int main()
   cout << "Neural network model is saved to \"model.bin\"" << endl;
   cout << "Finished" << endl;
 
+
   // Mark memory usage
   long mem_usage_05 = get_mem_usage();
 
   printf( "\n\n\n ================= \n\n\n");
   printf( "Memory usage in each section" );
-  printf( "Start: %ld MB", mem_usage_01/1000 );
-  printf( "Load data: %ld MB", (mem_usage_02-mem_usage_01)/1000);
-  printf( "Build model: %ld MB", (mem_usage_03-mem_usage_02)/1000);
-  printf( "Train: %ld MB", (mem_usage_04-mem_usage_03)/1000);
-  printf( "Predict: %ld MB", (mem_usage_05-mem_usage_04)/1000);
+  printf( "Start: %ld MB\n", mem_usage_01/1000 );
+  printf( "Load data: %ld MB\n", (mem_usage_02-mem_usage_01)/1000);
+  printf( "Build model: %ld MB\n", (mem_usage_03-mem_usage_02)/1000);
+  printf( "Train: %ld MB\n", (mem_usage_04-mem_usage_03)/1000);
+  printf( "Predict: %ld MB\n", (mem_usage_05-mem_usage_04)/1000);
 }
