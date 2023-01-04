@@ -14,6 +14,9 @@
  */
 #define MLPACK_ENABLE_ANN_SERIALIZATION
 #include <mlpack.hpp>
+#include <sys/time.h>         // For memory measurement
+#include <sys/resource.h>     // For memory measurement
+
 
 #if ((ENS_VERSION_MAJOR < 2) || ((ENS_VERSION_MAJOR == 2) && (ENS_VERSION_MINOR < 13)))
   #error "need ensmallen version 2.13.0 or later"
@@ -22,6 +25,14 @@
 using namespace arma;
 using namespace mlpack;
 using namespace std;
+
+
+long get_mem_usage() {
+  struct rusage myusage;
+  getrusage(RUSAGE_SELF, &myusage);
+  return myusage.ru_maxrss;
+}
+
 
 Row<size_t> getLabels(const mat& predOut)
 {
@@ -35,6 +46,9 @@ Row<size_t> getLabels(const mat& predOut)
 
 int main()
 {
+  // Mark memory usage
+  long mem_usage_01 = get_mem_usage();
+
   // Dataset is randomly split into validation
   // and training parts with following ratio.
   constexpr double RATIO = 0.1;
@@ -77,6 +91,9 @@ int main()
   // Create labels for training and validatiion datasets.
   const mat trainY = train.row(0);
   const mat validY = valid.row(0);
+
+  // Mark memory usage
+  long mem_usage_02 = get_mem_usage();
 
   // Specify the NN model. NegativeLogLikelihood is the output layer that
   // is used for classification problem. RandomInitialization means that
@@ -157,6 +174,10 @@ int main()
       1e-8,           // Tolerance.
       true);
 
+
+  // Mark memory usage
+  long mem_usage_03 = get_mem_usage();
+
   // Train the CNN model. If this is the first iteration, weights are
   // randomly initialized between -1 and 1. Otherwise, the values of weights
   // from the previous iteration are used.
@@ -174,6 +195,11 @@ int main()
                         << endl;
                     return validationLoss;
                   }));
+
+
+
+  // Mark memory usage
+  long mem_usage_04 = get_mem_usage();
 
   // Matrix to store the predictions on train and validation datasets.
   mat predOut;
@@ -219,4 +245,15 @@ int main()
 
   cout << "Neural network model is saved to \"model.bin\"" << endl;
   cout << "Finished" << endl;
+
+  // Mark memory usage
+  long mem_usage_05 = get_mem_usage();
+
+  printf( "\n\n\n ================= \n\n\n");
+  printf( "Memory usage in each section" );
+  printf( "Start: %ld MB", mem_usage_01/1000 );
+  printf( "Load data: %ld MB", (mem_usage_02-mem_usage_01)/1000);
+  printf( "Build model: %ld MB", (mem_usage_03-mem_usage_02)/1000);
+  printf( "Train: %ld MB", (mem_usage_04-mem_usage_03)/1000);
+  printf( "Predict: %ld MB", (mem_usage_05-mem_usage_04)/1000);
 }
