@@ -56,7 +56,7 @@ int main()
   // Allow 60 passes over the training data, unless we are stopped early by
   // EarlyStopAtMinLoss.
   // const int EPOCHS = 60;
-  const int EPOCHS = 1;
+  const int EPOCHS = 3;
 
   // Number of data points in each iteration of SGD.
   const int BATCH_SIZE = 50;
@@ -72,7 +72,7 @@ int main()
 
   // The original file can be downloaded from
   // https://www.kaggle.com/c/digit-recognizer/data
-  data::Load("../data/mnist_train_short.csv", dataset, true);
+  data::Load("../data/mnist_train_500.csv", dataset, true);
 
   // Split the dataset into training and validation sets.
   mat train, valid;
@@ -251,7 +251,7 @@ int main()
   long mem_usage_05 = get_mem_usage();
 
   printf( "\n\n\n ================= \n\n\n");
-  printf( "Memory usage in each section" );
+  printf( "Memory usage in each section\n" );
   printf( "Start: %ld MB\n", mem_usage_01/1000 );
   printf( "Load data: %ld MB\n", (mem_usage_02)/1000);
   printf( "Build model: %ld MB\n", (mem_usage_03)/1000);
@@ -259,4 +259,5 @@ int main()
   printf( "Predict: %ld MB\n", (mem_usage_05)/1000);
   printf( "Diff end - start: %ld MB\n", (mem_usage_05-mem_usage_01)/1000); 
   // Diff end - start: 342 MB with 5000 train images
+
 }
