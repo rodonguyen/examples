@@ -56,7 +56,7 @@ int main()
   // Allow 60 passes over the training data, unless we are stopped early by
   // EarlyStopAtMinLoss.
   // const int EPOCHS = 60;
-  const int EPOCHS = 3;
+  const int EPOCHS = 1;
 
   // Number of data points in each iteration of SGD.
   const int BATCH_SIZE = 50;
@@ -72,7 +72,7 @@ int main()
 
   // The original file can be downloaded from
   // https://www.kaggle.com/c/digit-recognizer/data
-  data::Load("../data/mnist_train_500.csv", dataset, true);
+  data::Load("../data/mnist_train_1000.csv", dataset, true);
 
   // Split the dataset into training and validation sets.
   mat train, valid;
@@ -138,21 +138,21 @@ int main()
                         2, // Stride along height.
                         true);
 
-  // Add the second convolution layer.
-  model.Add<Convolution>(16, // Number of output activation maps.
-                         5,  // Filter width.
-                         5,  // Filter height.
-                         1,  // Stride along width.
-                         1,  // Stride along height.
-                         0,  // Padding width.
-                         0   // Padding height.
-  );
+  // // Add the second convolution layer.
+  // model.Add<Convolution>(16, // Number of output activation maps.
+  //                        5,  // Filter width.
+  //                        5,  // Filter height.
+  //                        1,  // Stride along width.
+  //                        1,  // Stride along height.
+  //                        0,  // Padding width.
+  //                        0   // Padding height.
+  // );
 
-  // Add the second ReLU.
-  model.Add<LeakyReLU>();
+  // // Add the second ReLU.
+  // model.Add<LeakyReLU>();
 
-  // Add the second pooling layer.
-  model.Add<MaxPooling>(2, 2, 2, 2, true);
+  // // Add the second pooling layer.
+  // model.Add<MaxPooling>(2, 2, 2, 2, true);
 
   // Add the final dense layer.
   model.Add<Linear>(10);

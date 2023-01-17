@@ -1,8 +1,11 @@
 #!/bin/bash
 file='mnist_cnn'
+output=${file}'_ds1000_e1_convo1'
 # g++ ${file}.cpp -o ${file} -larmadillo -pg #  For profiling
-g++ ${file}.cpp -o ${file}_ds500_e3 -larmadillo # For measuring memory usage
-# ./${file}_shortDataset
+g++ ${file}.cpp -o ${output} -larmadillo # For measuring memory usage
+
+echo 'Run file with Valgrind...'
+valgrind --tool=callgrind ./${output}
 
 
 # PNG
