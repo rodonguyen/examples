@@ -18,6 +18,7 @@
 #include <sys/resource.h>     // For memory measurement
 #include <fstream>            // For file write/read
 #include <chrono>             // For time measurement
+#include <sstream>            // For string formatting
 
 
 #if ((ENS_VERSION_MAJOR < 2) || ((ENS_VERSION_MAJOR == 2) && (ENS_VERSION_MINOR < 13)))
@@ -29,9 +30,13 @@ using namespace mlpack;
 using namespace std;
 
 
-long get_mem_usage() {
+long getMemUsage() {
   struct rusage myusage;
+
+  // Get usage and assign result to myusage
   getrusage(RUSAGE_SELF, &myusage);
+  // getrusage(RUSAGE_CHILDREN, &myusage);
+
   return myusage.ru_maxrss;
 }
 
@@ -46,7 +51,10 @@ void addRecord(string line) {
    myrecord.close();
 }
 
-void addRecord(std::chrono::_V2::system_clock::time_point timeStart, std::chrono::_V2::system_clock::time_point timeNow, long memory, string description) {
+void addRecord(std::chrono::_V2::system_clock::time_point timeStart, 
+               std::chrono::_V2::system_clock::time_point timeNow, 
+               long memory, 
+               string description) {
    // Create and open a text file
    ofstream myrecord("record.csv", std::ios_base::app);
 
@@ -72,9 +80,18 @@ Row<size_t> getLabels(const mat& predOut)
 
 int main()
 {
-  // Mark memory usage
-  auto time_01 = std::chrono::high_resolution_clock::now();
-  long mem_usage_01 = get_mem_usage();
+  // For Recording purpose
+  addRecord("time(ms), memory(kB), description\n");
+  auto time_00 = std::chrono::high_resolution_clock::now();
+  long mem_usage_00 = getMemUsage();
+  stringstream line;
+
+  // Record
+  
+  auto t = std::chrono::time_point_cast<std::chrono::milliseconds>(time_00).time_since_epoch();
+  line << t.count() << "\n";
+  addRecord(line.str());
+  addRecord(time_00, time_00, mem_usage_00, "Start..");
 
   // Dataset is randomly split into validation
   // and training parts with following ratio.
@@ -101,6 +118,11 @@ int main()
   // https://www.kaggle.com/c/digit-recognizer/data
   data::Load("../data/mnist_train_1000.csv", dataset, true);
 
+  // Record
+  auto time_01 = std::chrono::high_resolution_clock::now();
+  long mem_usage_01 = getMemUsage();
+  addRecord(time_00, time_01, mem_usage_01, "Loaded train data");
+
   // Split the dataset into training and validation sets.
   mat train, valid;
   data::Split(dataset, train, valid, RATIO);
@@ -119,9 +141,10 @@ int main()
   const mat trainY = train.row(0);
   const mat validY = valid.row(0);
 
-  // Mark memory usage
-  auto time_02 = std::chrono::high_resolution_clock::now();
-  long mem_usage_02 = get_mem_usage();
+  // Record
+  time_01 = std::chrono::high_resolution_clock::now();
+  mem_usage_01 = getMemUsage();
+  addRecord(time_00, time_01, mem_usage_01, "Formatted data");
 
   // Specify the NN model. NegativeLogLikelihood is the output layer that
   // is used for classification problem. RandomInitialization means that
@@ -188,6 +211,7 @@ int main()
 
   model.InputDimensions() = vector<size_t>({ 28, 28 });
 
+
   cout << "Start training ..." << endl;
 
   // Set parameters for the Adam optimizer.
@@ -202,9 +226,11 @@ int main()
       1e-8,           // Tolerance.
       true);
 
+  // Record
+  time_01 = std::chrono::high_resolution_clock::now();
+  mem_usage_01 = getMemUsage();
+  addRecord(time_00, time_01, mem_usage_01, "Defined model");
 
-  // Mark memory usage
-  long mem_usage_03 = get_mem_usage();
 
   // Train the CNN model. If this is the first iteration, weights are
   // randomly initialized between -1 and 1. Otherwise, the values of weights
@@ -226,8 +252,10 @@ int main()
 
 
 
-  // Mark memory usage
-  long mem_usage_04 = get_mem_usage();
+  // Record
+  time_01 = std::chrono::high_resolution_clock::now();
+  mem_usage_01 = getMemUsage();
+  addRecord(time_00, time_01, mem_usage_01, "Trained");
 
   // Matrix to store the predictions on train and validation datasets.
   mat predOut;
@@ -238,6 +266,12 @@ int main()
   double trainAccuracy =
       accu(predLabels == trainY) / (double) trainY.n_elem * 100;
 
+
+  // Record
+  time_01 = std::chrono::high_resolution_clock::now();
+  mem_usage_01 = getMemUsage();
+  addRecord(time_00, time_01, mem_usage_01, "Predicted train data");
+
   // Get predictions on validation data points.
   model.Predict(validX, predOut);
   predLabels = getLabels(predOut);
@@ -245,11 +279,17 @@ int main()
   double validAccuracy =
       accu(predLabels == validY) / (double) validY.n_elem * 100;
 
+  // Record
+  time_01 = std::chrono::high_resolution_clock::now();
+  mem_usage_01 = getMemUsage();
+  addRecord(time_00, time_01, mem_usage_01, "Predicted val data");
+
   cout << "Accuracy: train = " << trainAccuracy << "%,"
             << "\t valid = " << validAccuracy << "%" << endl;
 
   // This uses MLPACK_ENABLE_ANN_SERIALIZATION, maybe
   // data::Save("model.bin", "model", model, false);
+  // cout << "Neural network model is saved to \"model.bin\"" << endl;
 
   cout << "Predicting on test set..." << endl;
 
@@ -260,32 +300,30 @@ int main()
   const mat testX = dataset.submat(1, 0, dataset.n_rows - 1, dataset.n_cols - 1)
       / 256.0;
   const mat testY = dataset.row(0);
+
+    // Record
+  time_01 = std::chrono::high_resolution_clock::now();
+  long mem_usage_02 = getMemUsage();
+  addRecord(time_00, time_01, mem_usage_02, "Loaded and formatted test data");
+
   model.Predict(testX, predOut);
   // Calculate accuracy on test data points.
   predLabels = getLabels(predOut);
   double testAccuracy =
       accu(predLabels == testY) / (double) testY.n_elem * 100;
 
+  // Record
+  time_01 = std::chrono::high_resolution_clock::now();
+  mem_usage_01 = getMemUsage();
+  addRecord(time_00, time_01, mem_usage_01, "Predicted test data");
+  addRecord("\n\n");
+
   cout << "Accuracy: test = " << testAccuracy << "%" << endl;
 
-  cout << "Saving predicted labels to \"results.csv.\"..." << endl;
+  // cout << "Saving predicted labels to \"results.csv.\"..." << endl;
   // Saving results into Kaggle compatible CSV file.
-  predLabels.save("results.csv", arma::csv_ascii);
+  // predLabels.save("results.csv", arma::csv_ascii);
 
-  cout << "Neural network model is saved to \"model.bin\"" << endl;
+
   cout << "Finished" << endl;
-
-
-  // Mark memory usage
-  long mem_usage_05 = get_mem_usage();
-
-  printf( "\n=================\n\n");
-  printf( "time02: %ld ms\n", std::chrono::duration_cast<std::chrono::milliseconds>(time_02-time_01).count() );
-  printf( "Memory usage in each section\n" );
-  printf( "Start: %ld MB\n", mem_usage_01/1000 );
-  printf( "Load data: %ld MB\n", (mem_usage_02)/1000);
-  printf( "Build model: %ld MB\n", (mem_usage_03)/1000);
-  printf( "Train: %ld MB\n", (mem_usage_04)/1000);
-  printf( "Predict: %ld MB\n", (mem_usage_05)/1000);
-  printf( "Diff end - start: %ld MB\n", (mem_usage_05-mem_usage_01)/1000);
 }
