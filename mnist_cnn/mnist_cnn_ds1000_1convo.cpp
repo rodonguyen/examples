@@ -100,7 +100,7 @@ int main()
   // Allow 60 passes over the training data, unless we are stopped early by
   // EarlyStopAtMinLoss.
   // const int EPOCHS = 60;
-  const int EPOCHS = 2;
+  const int EPOCHS = 10;
 
   // Number of data points in each iteration of SGD.
   const int BATCH_SIZE = 50;
@@ -257,72 +257,72 @@ int main()
   mem_usage_01 = getMemUsage();
   addRecord(time_00, time_01, mem_usage_01, "Trained");
 
-  // // Matrix to store the predictions on train and validation datasets.
-  // mat predOut;
-  // // Get predictions on training data points.
-  // model.Predict(trainX, predOut);
-  // // Calculate accuracy on training data points.
-  // Row<size_t> predLabels = getLabels(predOut);
-  // double trainAccuracy =
-  //     accu(predLabels == trainY) / (double) trainY.n_elem * 100;
+  // Matrix to store the predictions on train and validation datasets.
+  mat predOut;
+  // Get predictions on training data points.
+  model.Predict(trainX, predOut);
+  // Calculate accuracy on training data points.
+  Row<size_t> predLabels = getLabels(predOut);
+  double trainAccuracy =
+      accu(predLabels == trainY) / (double) trainY.n_elem * 100;
 
 
-  // // Record
-  // time_01 = std::chrono::high_resolution_clock::now();
-  // mem_usage_01 = getMemUsage();
-  // addRecord(time_00, time_01, mem_usage_01, "Predicted train data");
+  // Record
+  time_01 = std::chrono::high_resolution_clock::now();
+  mem_usage_01 = getMemUsage();
+  addRecord(time_00, time_01, mem_usage_01, "Predicted train data");
 
-  // cout << "Accuracy: train = " << trainAccuracy << "%," << endl;
+  cout << "Accuracy: train = " << trainAccuracy << "%," << endl;
 
 
 
-  // // Get predictions on validation data points.
-  // model.Predict(validX, predOut);
-  // predLabels = getLabels(predOut);
-  // // Calculate accuracy on validation data points.
-  // double validAccuracy =
-  //     accu(predLabels == validY) / (double) validY.n_elem * 100;
+  // Get predictions on validation data points.
+  model.Predict(validX, predOut);
+  predLabels = getLabels(predOut);
+  // Calculate accuracy on validation data points.
+  double validAccuracy =
+      accu(predLabels == validY) / (double) validY.n_elem * 100;
 
-  // // Record
-  // time_01 = std::chrono::high_resolution_clock::now();
-  // mem_usage_01 = getMemUsage();
-  // addRecord(time_00, time_01, mem_usage_01, "Predicted val data");
+  // Record
+  time_01 = std::chrono::high_resolution_clock::now();
+  mem_usage_01 = getMemUsage();
+  addRecord(time_00, time_01, mem_usage_01, "Predicted val data");
 
-  // cout << "Accuracy: train = " << trainAccuracy << "%,"
-  //           << "\t valid = " << validAccuracy << "%" << endl;
+  cout << "Accuracy: train = " << trainAccuracy << "%,"
+            << "\t valid = " << validAccuracy << "%" << endl;
 
-  // // This uses MLPACK_ENABLE_ANN_SERIALIZATION, maybe
-  // // data::Save("model.bin", "model", model, false);
-  // // cout << "Neural network model is saved to \"model.bin\"" << endl;
+  // This uses MLPACK_ENABLE_ANN_SERIALIZATION, maybe
+  // data::Save("model.bin", "model", model, false);
+  // cout << "Neural network model is saved to \"model.bin\"" << endl;
 
-  // cout << "Predicting on test set..." << endl;
+  cout << "Predicting on test set..." << endl;
 
-  // // Get predictions on test data points.
-  // // The original file could be download from
-  // // https://www.kaggle.com/c/digit-recognizer/data
-  // data::Load("../data/mnist_test_1000.csv", dataset, true);
-  // const mat testX = dataset.submat(1, 0, dataset.n_rows - 1, dataset.n_cols - 1)
-  //     / 256.0;
-  // const mat testY = dataset.row(0);
+  // Get predictions on test data points.
+  // The original file could be download from
+  // https://www.kaggle.com/c/digit-recognizer/data
+  data::Load("../data/mnist_test_1000.csv", dataset, true);
+  const mat testX = dataset.submat(1, 0, dataset.n_rows - 1, dataset.n_cols - 1)
+      / 256.0;
+  const mat testY = dataset.row(0);
 
-  //   // Record
-  // time_01 = std::chrono::high_resolution_clock::now();
-  // long mem_usage_02 = getMemUsage();
-  // addRecord(time_00, time_01, mem_usage_02, "Loaded and formatted test data");
+    // Record
+  time_01 = std::chrono::high_resolution_clock::now();
+  long mem_usage_02 = getMemUsage();
+  addRecord(time_00, time_01, mem_usage_02, "Loaded and formatted test data");
 
-  // model.Predict(testX, predOut);
-  // // Calculate accuracy on test data points.
-  // predLabels = getLabels(predOut);
-  // double testAccuracy =
-  //     accu(predLabels == testY) / (double) testY.n_elem * 100;
+  model.Predict(testX, predOut);
+  // Calculate accuracy on test data points.
+  predLabels = getLabels(predOut);
+  double testAccuracy =
+      accu(predLabels == testY) / (double) testY.n_elem * 100;
 
-  // // Record
-  // time_01 = std::chrono::high_resolution_clock::now();
-  // mem_usage_01 = getMemUsage();
-  // addRecord(time_00, time_01, mem_usage_01, "Predicted test data");
+  // Record
+  time_01 = std::chrono::high_resolution_clock::now();
+  mem_usage_01 = getMemUsage();
+  addRecord(time_00, time_01, mem_usage_01, "Predicted test data");
   addRecord("\n\n");
 
-  // cout << "Accuracy: test = " << testAccuracy << "%" << endl;
+  cout << "Accuracy: test = " << testAccuracy << "%" << endl;
 
   // cout << "Saving predicted labels to \"results.csv.\"..." << endl;
   // Saving results into Kaggle compatible CSV file.

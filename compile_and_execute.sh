@@ -56,15 +56,15 @@ file='mnist_cnn_ds1000_1convo'
 output=${file}
 # g++ ${file}.cpp -o ${output} -larmadillo
 # ./${output}
-# ./${output} > console_output_01_convo.txt
+# ./${output} > console_output.txt
 
 
 # echo 'Run file with Valgrind...'
 # valgrind --tool=callgrind ./${output}
 
 # GENERATE CALL GRAPH
-gprof2dot ./callgrind.out.61749 -f callgrind -n 0.1 -e 0.02 -s | dot -Tpng -o ./mnist_cnn_train_only_02.png
+# gprof2dot ./callgrind.out.118168 -f callgrind -n 0.1 -e 0.02 -s | dot -Tpng -o ./mnist_cnn_train_only_02.png
 
-
+# gprof2dot ./callgrind.out.118168 -f callgrind -n 0.1 -e 0.02 -s | dot -Tpng -o ./callgraph01.png
 # htop --delay=1 --pid=
 # g++ ${file}.cpp -o ${file} -larmadillo -pg #  For profiling

@@ -174,12 +174,8 @@ int main()
   addRecord("time(ms), memory(kB), description\n");
   auto time_00 = std::chrono::high_resolution_clock::now();
   long mem_usage_00 = getMemUsage();
-  stringstream line;
 
   // Record
-  auto t = std::chrono::time_point_cast<std::chrono::milliseconds>(time_00).time_since_epoch();
-  line << t.count() << "\n";
-  addRecord(line.str());
   addRecord(time_00, mem_usage_00, "Start..");
 
   // Change the names of these files as necessary. They should be correct
@@ -255,7 +251,7 @@ int main()
   data::Split(dataset, trainData, testData, RATIO, false);
 
   // Number of epochs for training.
-  const int EPOCHS = 2;
+  const int EPOCHS = 50;  // 50
 
   // Scale all data into the range (0, 1) for increased numerical stability.
   data::MinMaxScaler scale;
@@ -333,7 +329,7 @@ int main()
     // Record
     time_00 = std::chrono::high_resolution_clock::now();
     mem_usage_00 = getMemUsage();
-    addRecord(time_00, mem_usage_00, "Defined data");
+    addRecord(time_00, mem_usage_00, "Defined model");
 
     model.Train(trainX,
                 trainY,
@@ -353,6 +349,15 @@ int main()
     time_00 = std::chrono::high_resolution_clock::now();
     mem_usage_00 = getMemUsage();
     addRecord(time_00, mem_usage_00, "Trained");
+
+    // Get predictions on test data points.
+    arma::cube predOutP;
+    model.Predict(testX, predOutP);
+    // modelP.Predict(testX, predOutP);
+    // Calculate MSE on prediction.
+    double testMSEP = ComputeMSE(predOutP, testY);
+    cout << "Mean Squared Error on Prediction data points:= " << testMSEP << endl;
+
     addRecord("\n\n");
 
 
