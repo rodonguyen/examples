@@ -358,6 +358,10 @@ int main()
     double testMSEP = ComputeMSE(predOutP, testY);
     cout << "Mean Squared Error on Prediction data points:= " << testMSEP << endl;
 
+    // Record
+    time_00 = std::chrono::high_resolution_clock::now();
+    mem_usage_00 = getMemUsage();
+    addRecord(time_00, mem_usage_00, "Tested");
     addRecord("\n\n");
 
 
