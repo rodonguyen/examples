@@ -131,7 +131,7 @@ int main()
 
   // The original file can be downloaded from
   // https://www.kaggle.com/c/digit-recognizer/data
-  data::Load("../data/mnist_train_2000.csv", dataset, true);
+  data::Load("../data/mnist_train_2000_q.csv", dataset, true);
 
   // Record
   auto time_01 = std::chrono::high_resolution_clock::now();
@@ -230,7 +230,7 @@ int main()
   cout << "Start training ..." << endl;
 
   // Set parameters for the Adam optimizer.
-  ens::Adam optimizer(
+  ens::Adam optimizer( 
       STEP_SIZE,  // Step size of the optimizer.
       BATCH_SIZE, // Batch size. Number of data points that are used in each
                   // iteration.
@@ -315,7 +315,7 @@ int main()
   // Get predictions on test data points.
   // The original file could be download from
   // https://www.kaggle.com/c/digit-recognizer/data
-  data::Load("../data/mnist_test_1000.csv", dataset, true);
+  data::Load("../data/mnist_test_1000_q.csv", dataset, true);
   const mat testX = dataset.submat(1, 0, dataset.n_rows - 1, dataset.n_cols - 1)
       / 256.0;
   const mat testY = dataset.row(0);
@@ -349,6 +349,6 @@ int main()
   line  << to_string(std::chrono::duration_cast<std::chrono::milliseconds>(time_01-time_00).count() / 1000) << ", " 
         << to_string(mem_usage_finished_training) << ", " 
         << to_string(mem_usage_01) << ", " 
-        << testAccuracy << "%\n" << endl;
+        << testAccuracy << "%\n";
   addRecordToFile02(line);
 }

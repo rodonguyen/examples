@@ -232,7 +232,7 @@ int main()
     int precision = n - min(n, loadNumStr.size());
     loadNumStr.insert(0, precision, '0');
 
-    string dataset_filename = "../data/mnist_train_split/mnist_train_2000_" + to_string(totalLoadNum) + '_' + loadNumStr + ".csv";
+    string dataset_filename = "../data/mnist_train_split/mnist_train_2000_" + to_string(totalLoadNum) + '_' + loadNumStr + "_q.csv";
     cout << "Reading data from '" + dataset_filename + "'" << endl;
 
     // The original file can be downloaded from
@@ -305,7 +305,7 @@ int main()
   // Get predictions on test data points.
   // The original file could be download from
   // https://www.kaggle.com/c/digit-recognizer/data
-  data::Load("../data/mnist_test_1000.csv", dataset, true);
+  data::Load("../data/mnist_test_1000_q.csv", dataset, true);
   const mat testX = dataset.submat(1, 0, dataset.n_rows - 1, dataset.n_cols - 1)
       / 256.0;
   const mat testY = dataset.row(0);

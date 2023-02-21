@@ -119,7 +119,7 @@ int main()
   // Step size of the optimizer.
   const double STEP_SIZE = 1.2e-3;
 
-  const int trainImagesPerLoad = 225;  // 1000 per file, minus 10% for testing 
+  const int trainImagesPerLoad = 15;  // 1000 per file, minus 10% for testing 
 
 
   // Specify the NN model. NegativeLogLikelihood is the output layer that
@@ -221,7 +221,7 @@ int main()
   ///////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////
-  int totalLoadNum = 8;
+  int totalLoadNum = 128;
   for (int loadNum = 1; loadNum <= totalLoadNum; loadNum++) {
     
 

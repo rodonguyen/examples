@@ -1,6 +1,17 @@
 #!/bin/bash
 
-for (( i=24; i<=24; i+=2 )); do
+echo 'Compile and run 1-load'
+
+g++ 'mnist_cnn_bbb_before.cpp' -o 'mnist_cnn_bbb_before' -larmadillo
+sleep 10s  # Pause to refresh memory, maybe
+./mnist_cnn_bbb_before  # 1 load
+
+
+mylist=(2 4 8 16 32 64 96)
+
+# multi-load
+# Loop through the list
+for i in "${mylist[@]}"; do
    file='mnist_cnn_bbb_after_'$i
    echo 'Compiling' $file
    g++ $file'.cpp' -o $file -larmadillo
@@ -9,7 +20,7 @@ done
 
 sleep 10s  # Pause to refresh memory, maybe
 
-for (( i=24; i<=24; i+=2 )); do
+for i in "${mylist[@]}"; do
    file='mnist_cnn_bbb_after_'$i
    echo 'Running' $file
    ./$file
@@ -17,8 +28,29 @@ for (( i=24; i<=24; i+=2 )); do
 done
 
 
+#####################################################
+
+# for (( i=96; i<=96; i+=2 )); do
+#    file='mnist_cnn_bbb_after_'$i
+#    echo 'Compiling' $file
+#    g++ $file'.cpp' -o $file -larmadillo
+#    echo 'Done'
+# done
 
 
+# sleep 10s  # Pause to refresh memory, maybe
+
+# for (( i=96; i<=96; i+=2 )); do
+#    file='mnist_cnn_bbb_after_'$i
+#    echo 'Running' $file
+#    ./$file
+#    echo 'Done' $i
+# done
+
+
+
+
+#####################################################
 
 # file01='mnist_cnn/mnist_cnn_1convo_1'
 # file02='mnist_cnn/mnist_cnn_1convo_2'
