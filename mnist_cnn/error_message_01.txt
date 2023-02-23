@@ -1,0 +1,469 @@
+In file included from /usr/include/armadillo:543,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/fn_svds.hpp: In function ‘bool arma::svds_helper(arma::Mat<typename T1::elem_type>&, arma::Col<typename T1::pod_type>&, arma::Mat<typename T1::elem_type>&, const arma::SpBase<typename T1::elem_type, T1>&, arma::uword, typename T1::pod_type, bool, const typename arma::arma_real_only<typename T1::elem_type>::result*)’:
+/usr/include/armadillo_bits/fn_svds.hpp:115:39: error: no matching function for call to ‘min(const uword&, int)’
+  115 |       const uword N_extra = (std::min)( indices2.n_elem, (kk - indices.n_elem) );
+      |                             ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/11/bits/specfun.h:45,
+                 from /usr/include/c++/11/cmath:1935,
+                 from /usr/local/include/mlpack/base.hpp:24,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algobase.h:230:5: note: candidate: ‘template<class _Tp> constexpr const _Tp& std::min(const _Tp&, const _Tp&)’
+  230 |     min(const _Tp& __a, const _Tp& __b)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algobase.h:230:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:543,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/fn_svds.hpp:115:39: note:   deduced conflicting types for parameter ‘const _Tp’ (‘unsigned char’ and ‘int’)
+  115 |       const uword N_extra = (std::min)( indices2.n_elem, (kk - indices.n_elem) );
+      |                             ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/11/bits/specfun.h:45,
+                 from /usr/include/c++/11/cmath:1935,
+                 from /usr/local/include/mlpack/base.hpp:24,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algobase.h:278:5: note: candidate: ‘template<class _Tp, class _Compare> constexpr const _Tp& std::min(const _Tp&, const _Tp&, _Compare)’
+  278 |     min(const _Tp& __a, const _Tp& __b, _Compare __comp)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algobase.h:278:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:543,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/fn_svds.hpp:115:39: note:   deduced conflicting types for parameter ‘const _Tp’ (‘unsigned char’ and ‘int’)
+  115 |       const uword N_extra = (std::min)( indices2.n_elem, (kk - indices.n_elem) );
+      |                             ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/11/algorithm:62,
+                 from /usr/include/armadillo:40,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algo.h:3449:5: note: candidate: ‘template<class _Tp> constexpr _Tp std::min(std::initializer_list<_Tp>)’
+ 3449 |     min(initializer_list<_Tp> __l)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algo.h:3449:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:543,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/fn_svds.hpp:115:39: note:   mismatched types ‘std::initializer_list<_Tp>’ and ‘unsigned char’
+  115 |       const uword N_extra = (std::min)( indices2.n_elem, (kk - indices.n_elem) );
+      |                             ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/11/algorithm:62,
+                 from /usr/include/armadillo:40,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algo.h:3455:5: note: candidate: ‘template<class _Tp, class _Compare> constexpr _Tp std::min(std::initializer_list<_Tp>, _Compare)’
+ 3455 |     min(initializer_list<_Tp> __l, _Compare __comp)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algo.h:3455:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:543,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/fn_svds.hpp:115:39: note:   mismatched types ‘std::initializer_list<_Tp>’ and ‘unsigned char’
+  115 |       const uword N_extra = (std::min)( indices2.n_elem, (kk - indices.n_elem) );
+      |                             ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/armadillo:543,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/fn_svds.hpp: In function ‘bool arma::svds_helper(arma::Mat<typename T1::elem_type>&, arma::Col<typename T1::pod_type>&, arma::Mat<typename T1::elem_type>&, const arma::SpBase<typename T1::elem_type, T1>&, arma::uword, typename T1::pod_type, bool, const typename arma::arma_cx_only<typename T1::elem_type>::result*)’:
+/usr/include/armadillo_bits/fn_svds.hpp:241:39: error: no matching function for call to ‘min(const uword&, int)’
+  241 |       const uword N_extra = (std::min)( indices2.n_elem, (kk - indices.n_elem) );
+      |                             ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/11/bits/specfun.h:45,
+                 from /usr/include/c++/11/cmath:1935,
+                 from /usr/local/include/mlpack/base.hpp:24,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algobase.h:230:5: note: candidate: ‘template<class _Tp> constexpr const _Tp& std::min(const _Tp&, const _Tp&)’
+  230 |     min(const _Tp& __a, const _Tp& __b)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algobase.h:230:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:543,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/fn_svds.hpp:241:39: note:   deduced conflicting types for parameter ‘const _Tp’ (‘unsigned char’ and ‘int’)
+  241 |       const uword N_extra = (std::min)( indices2.n_elem, (kk - indices.n_elem) );
+      |                             ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/11/bits/specfun.h:45,
+                 from /usr/include/c++/11/cmath:1935,
+                 from /usr/local/include/mlpack/base.hpp:24,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algobase.h:278:5: note: candidate: ‘template<class _Tp, class _Compare> constexpr const _Tp& std::min(const _Tp&, const _Tp&, _Compare)’
+  278 |     min(const _Tp& __a, const _Tp& __b, _Compare __comp)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algobase.h:278:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:543,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/fn_svds.hpp:241:39: note:   deduced conflicting types for parameter ‘const _Tp’ (‘unsigned char’ and ‘int’)
+  241 |       const uword N_extra = (std::min)( indices2.n_elem, (kk - indices.n_elem) );
+      |                             ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/11/algorithm:62,
+                 from /usr/include/armadillo:40,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algo.h:3449:5: note: candidate: ‘template<class _Tp> constexpr _Tp std::min(std::initializer_list<_Tp>)’
+ 3449 |     min(initializer_list<_Tp> __l)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algo.h:3449:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:543,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/fn_svds.hpp:241:39: note:   mismatched types ‘std::initializer_list<_Tp>’ and ‘unsigned char’
+  241 |       const uword N_extra = (std::min)( indices2.n_elem, (kk - indices.n_elem) );
+      |                             ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/11/algorithm:62,
+                 from /usr/include/armadillo:40,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algo.h:3455:5: note: candidate: ‘template<class _Tp, class _Compare> constexpr _Tp std::min(std::initializer_list<_Tp>, _Compare)’
+ 3455 |     min(initializer_list<_Tp> __l, _Compare __comp)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algo.h:3455:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:543,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/fn_svds.hpp:241:39: note:   mismatched types ‘std::initializer_list<_Tp>’ and ‘unsigned char’
+  241 |       const uword N_extra = (std::min)( indices2.n_elem, (kk - indices.n_elem) );
+      |                             ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/armadillo:550,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/band_helper.hpp: In function ‘void arma::band_helper::compress(arma::Mat<eT>&, const arma::Mat<eT>&, arma::uword, arma::uword, bool)’:
+/usr/include/armadillo_bits/band_helper.hpp:269:43: error: no matching function for call to ‘min(const uword&, int)’
+  269 |       const uword A_row_endp1 = (std::min)(N, j+KL+1);
+      |                                 ~~~~~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/11/bits/specfun.h:45,
+                 from /usr/include/c++/11/cmath:1935,
+                 from /usr/local/include/mlpack/base.hpp:24,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algobase.h:230:5: note: candidate: ‘template<class _Tp> constexpr const _Tp& std::min(const _Tp&, const _Tp&)’
+  230 |     min(const _Tp& __a, const _Tp& __b)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algobase.h:230:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:550,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/band_helper.hpp:269:43: note:   deduced conflicting types for parameter ‘const _Tp’ (‘unsigned char’ and ‘int’)
+  269 |       const uword A_row_endp1 = (std::min)(N, j+KL+1);
+      |                                 ~~~~~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/11/bits/specfun.h:45,
+                 from /usr/include/c++/11/cmath:1935,
+                 from /usr/local/include/mlpack/base.hpp:24,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algobase.h:278:5: note: candidate: ‘template<class _Tp, class _Compare> constexpr const _Tp& std::min(const _Tp&, const _Tp&, _Compare)’
+  278 |     min(const _Tp& __a, const _Tp& __b, _Compare __comp)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algobase.h:278:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:550,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/band_helper.hpp:269:43: note:   deduced conflicting types for parameter ‘const _Tp’ (‘unsigned char’ and ‘int’)
+  269 |       const uword A_row_endp1 = (std::min)(N, j+KL+1);
+      |                                 ~~~~~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/11/algorithm:62,
+                 from /usr/include/armadillo:40,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algo.h:3449:5: note: candidate: ‘template<class _Tp> constexpr _Tp std::min(std::initializer_list<_Tp>)’
+ 3449 |     min(initializer_list<_Tp> __l)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algo.h:3449:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:550,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/band_helper.hpp:269:43: note:   mismatched types ‘std::initializer_list<_Tp>’ and ‘unsigned char’
+  269 |       const uword A_row_endp1 = (std::min)(N, j+KL+1);
+      |                                 ~~~~~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/11/algorithm:62,
+                 from /usr/include/armadillo:40,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algo.h:3455:5: note: candidate: ‘template<class _Tp, class _Compare> constexpr _Tp std::min(std::initializer_list<_Tp>, _Compare)’
+ 3455 |     min(initializer_list<_Tp> __l, _Compare __comp)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algo.h:3455:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:550,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/band_helper.hpp:269:43: note:   mismatched types ‘std::initializer_list<_Tp>’ and ‘unsigned char’
+  269 |       const uword A_row_endp1 = (std::min)(N, j+KL+1);
+      |                                 ~~~~~~~~~~^~~~~~~~~~~
+/usr/include/armadillo_bits/band_helper.hpp: In function ‘void arma::band_helper::uncompress(arma::Mat<eT>&, const arma::Mat<eT>&, arma::uword, arma::uword, bool)’:
+/usr/include/armadillo_bits/band_helper.hpp:310:43: error: no matching function for call to ‘min(const uword&, int)’
+  310 |       const uword A_row_endp1 = (std::min)(N, j+KL+1);
+      |                                 ~~~~~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/11/bits/specfun.h:45,
+                 from /usr/include/c++/11/cmath:1935,
+                 from /usr/local/include/mlpack/base.hpp:24,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algobase.h:230:5: note: candidate: ‘template<class _Tp> constexpr const _Tp& std::min(const _Tp&, const _Tp&)’
+  230 |     min(const _Tp& __a, const _Tp& __b)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algobase.h:230:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:550,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/band_helper.hpp:310:43: note:   deduced conflicting types for parameter ‘const _Tp’ (‘unsigned char’ and ‘int’)
+  310 |       const uword A_row_endp1 = (std::min)(N, j+KL+1);
+      |                                 ~~~~~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/11/bits/specfun.h:45,
+                 from /usr/include/c++/11/cmath:1935,
+                 from /usr/local/include/mlpack/base.hpp:24,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algobase.h:278:5: note: candidate: ‘template<class _Tp, class _Compare> constexpr const _Tp& std::min(const _Tp&, const _Tp&, _Compare)’
+  278 |     min(const _Tp& __a, const _Tp& __b, _Compare __comp)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algobase.h:278:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:550,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/band_helper.hpp:310:43: note:   deduced conflicting types for parameter ‘const _Tp’ (‘unsigned char’ and ‘int’)
+  310 |       const uword A_row_endp1 = (std::min)(N, j+KL+1);
+      |                                 ~~~~~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/11/algorithm:62,
+                 from /usr/include/armadillo:40,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algo.h:3449:5: note: candidate: ‘template<class _Tp> constexpr _Tp std::min(std::initializer_list<_Tp>)’
+ 3449 |     min(initializer_list<_Tp> __l)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algo.h:3449:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:550,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/band_helper.hpp:310:43: note:   mismatched types ‘std::initializer_list<_Tp>’ and ‘unsigned char’
+  310 |       const uword A_row_endp1 = (std::min)(N, j+KL+1);
+      |                                 ~~~~~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/11/algorithm:62,
+                 from /usr/include/armadillo:40,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algo.h:3455:5: note: candidate: ‘template<class _Tp, class _Compare> constexpr _Tp std::min(std::initializer_list<_Tp>, _Compare)’
+ 3455 |     min(initializer_list<_Tp> __l, _Compare __comp)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algo.h:3455:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:550,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/band_helper.hpp:310:43: note:   mismatched types ‘std::initializer_list<_Tp>’ and ‘unsigned char’
+  310 |       const uword A_row_endp1 = (std::min)(N, j+KL+1);
+      |                                 ~~~~~~~~~~^~~~~~~~~~~
+In file included from /usr/include/armadillo:777,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/newarp_GenEigsSolver_meat.hpp: In member function ‘arma::uword arma::newarp::GenEigsSolver<eT, SelectionRule, OpType>::nev_adjusted(arma::uword)’:
+/usr/include/armadillo_bits/newarp_GenEigsSolver_meat.hpp:216:24: error: no matching function for call to ‘min(arma::uword&, int)’
+  216 |   nev_new += (std::min)(nconv, (ncv - nev_new) / 2);
+      |              ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/11/bits/specfun.h:45,
+                 from /usr/include/c++/11/cmath:1935,
+                 from /usr/local/include/mlpack/base.hpp:24,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algobase.h:230:5: note: candidate: ‘template<class _Tp> constexpr const _Tp& std::min(const _Tp&, const _Tp&)’
+  230 |     min(const _Tp& __a, const _Tp& __b)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algobase.h:230:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:777,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/newarp_GenEigsSolver_meat.hpp:216:24: note:   deduced conflicting types for parameter ‘const _Tp’ (‘unsigned char’ and ‘int’)
+  216 |   nev_new += (std::min)(nconv, (ncv - nev_new) / 2);
+      |              ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/11/bits/specfun.h:45,
+                 from /usr/include/c++/11/cmath:1935,
+                 from /usr/local/include/mlpack/base.hpp:24,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algobase.h:278:5: note: candidate: ‘template<class _Tp, class _Compare> constexpr const _Tp& std::min(const _Tp&, const _Tp&, _Compare)’
+  278 |     min(const _Tp& __a, const _Tp& __b, _Compare __comp)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algobase.h:278:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:777,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/newarp_GenEigsSolver_meat.hpp:216:24: note:   deduced conflicting types for parameter ‘const _Tp’ (‘unsigned char’ and ‘int’)
+  216 |   nev_new += (std::min)(nconv, (ncv - nev_new) / 2);
+      |              ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/11/algorithm:62,
+                 from /usr/include/armadillo:40,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algo.h:3449:5: note: candidate: ‘template<class _Tp> constexpr _Tp std::min(std::initializer_list<_Tp>)’
+ 3449 |     min(initializer_list<_Tp> __l)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algo.h:3449:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:777,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/newarp_GenEigsSolver_meat.hpp:216:24: note:   mismatched types ‘std::initializer_list<_Tp>’ and ‘unsigned char’
+  216 |   nev_new += (std::min)(nconv, (ncv - nev_new) / 2);
+      |              ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/11/algorithm:62,
+                 from /usr/include/armadillo:40,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algo.h:3455:5: note: candidate: ‘template<class _Tp, class _Compare> constexpr _Tp std::min(std::initializer_list<_Tp>, _Compare)’
+ 3455 |     min(initializer_list<_Tp> __l, _Compare __comp)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algo.h:3455:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:777,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/newarp_GenEigsSolver_meat.hpp:216:24: note:   mismatched types ‘std::initializer_list<_Tp>’ and ‘unsigned char’
+  216 |   nev_new += (std::min)(nconv, (ncv - nev_new) / 2);
+      |              ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/armadillo:778,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/newarp_SymEigsSolver_meat.hpp: In member function ‘arma::uword arma::newarp::SymEigsSolver<eT, SelectionRule, OpType>::nev_adjusted(arma::uword)’:
+/usr/include/armadillo_bits/newarp_SymEigsSolver_meat.hpp:223:24: error: no matching function for call to ‘min(arma::uword&, int)’
+  223 |   nev_new += (std::min)(nconv, (ncv - nev_new) / 2);
+      |              ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/11/bits/specfun.h:45,
+                 from /usr/include/c++/11/cmath:1935,
+                 from /usr/local/include/mlpack/base.hpp:24,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algobase.h:230:5: note: candidate: ‘template<class _Tp> constexpr const _Tp& std::min(const _Tp&, const _Tp&)’
+  230 |     min(const _Tp& __a, const _Tp& __b)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algobase.h:230:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:778,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/newarp_SymEigsSolver_meat.hpp:223:24: note:   deduced conflicting types for parameter ‘const _Tp’ (‘unsigned char’ and ‘int’)
+  223 |   nev_new += (std::min)(nconv, (ncv - nev_new) / 2);
+      |              ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/11/bits/specfun.h:45,
+                 from /usr/include/c++/11/cmath:1935,
+                 from /usr/local/include/mlpack/base.hpp:24,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algobase.h:278:5: note: candidate: ‘template<class _Tp, class _Compare> constexpr const _Tp& std::min(const _Tp&, const _Tp&, _Compare)’
+  278 |     min(const _Tp& __a, const _Tp& __b, _Compare __comp)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algobase.h:278:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:778,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/newarp_SymEigsSolver_meat.hpp:223:24: note:   deduced conflicting types for parameter ‘const _Tp’ (‘unsigned char’ and ‘int’)
+  223 |   nev_new += (std::min)(nconv, (ncv - nev_new) / 2);
+      |              ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/11/algorithm:62,
+                 from /usr/include/armadillo:40,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algo.h:3449:5: note: candidate: ‘template<class _Tp> constexpr _Tp std::min(std::initializer_list<_Tp>)’
+ 3449 |     min(initializer_list<_Tp> __l)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algo.h:3449:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:778,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/newarp_SymEigsSolver_meat.hpp:223:24: note:   mismatched types ‘std::initializer_list<_Tp>’ and ‘unsigned char’
+  223 |   nev_new += (std::min)(nconv, (ncv - nev_new) / 2);
+      |              ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/11/algorithm:62,
+                 from /usr/include/armadillo:40,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/c++/11/bits/stl_algo.h:3455:5: note: candidate: ‘template<class _Tp, class _Compare> constexpr _Tp std::min(std::initializer_list<_Tp>, _Compare)’
+ 3455 |     min(initializer_list<_Tp> __l, _Compare __comp)
+      |     ^~~
+/usr/include/c++/11/bits/stl_algo.h:3455:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/armadillo:778,
+                 from /usr/local/include/mlpack/core/arma_extend/arma_extend.hpp:21,
+                 from /usr/local/include/mlpack/base.hpp:89,
+                 from /usr/local/include/mlpack.hpp:25,
+                 from mnist_cnn_bbb_after_8.cpp:17:
+/usr/include/armadillo_bits/newarp_SymEigsSolver_meat.hpp:223:24: note:   mismatched types ‘std::initializer_list<_Tp>’ and ‘unsigned char’
+  223 |   nev_new += (std::min)(nconv, (ncv - nev_new) / 2);
+      |              ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~

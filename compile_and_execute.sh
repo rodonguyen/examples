@@ -1,26 +1,31 @@
 #!/bin/bash
 
-echo 'Compile and run 1-load'
 
-g++ 'mnist_cnn_bbb_before.cpp' -o 'mnist_cnn_bbb_before' -larmadillo
-sleep 10s  # Pause to refresh memory, maybe
-./mnist_cnn_bbb_before  # 1 load
+#####################################################
+
+# echo 'Compile and run 1-load'
+
+# g++ 'mnist_cnn_bbb_before.cpp' -o 'mnist_cnn_bbb_before' -larmadillo
+# sleep 10s  # Pause to refresh memory, maybe
+# ./mnist_cnn_bbb_before  # 1 load
 
 
-mylist=(2 4 8 16 32 64 96)
+# mylist=(2 4 8 16 32 64 96 128)
+mylist=(128)
 
-# multi-load
-# Loop through the list
+# # multi-load
+# # Loop through the list
+# for i in "${mylist[@]}"; do
+#    file='mnist_cnn_bbb_after_'$i
+#    echo 'Compiling' $file
+#    g++ $file'.cpp' -o $file -larmadillo
+#    echo 'Done'
+# done
+
+# sleep 6s  # Pause to refresh memory, maybe
+
 for i in "${mylist[@]}"; do
-   file='mnist_cnn_bbb_after_'$i
-   echo 'Compiling' $file
-   g++ $file'.cpp' -o $file -larmadillo
-   echo 'Done'
-done
-
-sleep 10s  # Pause to refresh memory, maybe
-
-for i in "${mylist[@]}"; do
+   sleep 2s  # Pause to refresh memory, maybe
    file='mnist_cnn_bbb_after_'$i
    echo 'Running' $file
    ./$file
@@ -81,3 +86,5 @@ done
 # gprof2dot ./callgrind.out.118168 -f callgrind -n 0.1 -e 0.02 -s | dot -Tpng -o ./callgraph01.png
 # htop --delay=1 --pid=
 # g++ ${file}.cpp -o ${file} -larmadillo -pg #  For profiling
+
+g++ 'mnist_cnn_bbb_after_8.cpp' -o 'mnist_cnn_bbb_after_8_q' -larmadillo
